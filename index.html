@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Image Classifier</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main class="container">
+        <h1>Kenali Gayamu! 📸</h1>
+        <p>Unggah gambar atau gunakan webcam untuk melihat prediksi dari AI.</p>
+
+        <div class="tabs">
+            <button id="upload-tab" class="tab-button active" onclick="showTab('upload')">Unggah Gambar</button>
+            <button id="webcam-tab" class="tab-button" onclick="showTab('webcam')">Gunakan Webcam</button>
+        </div>
+
+        <section id="upload-section" class="content-section active">
+            <div class="image-preview-container">
+                <img id="image-preview" src="" alt="Image Preview"/>
+                <span id="preview-text">Pilih gambar untuk pratinjau</span>
+            </div>
+            
+            <input type="file" id="file-input" accept="image/*" style="display: none;">
+            <button class="main-button" onclick="document.getElementById('file-input').click();">Pilih Gambar</button>
+            
+            <div id="upload-result" class="prediction-container">
+                </div>
+        </section>
+
+        <section id="webcam-section" class="content-section">
+            <div id="webcam-container" class="webcam-container">
+                </div>
+            <button id="webcam-button" class="main-button">Mulai Kamera</button>
+            
+            <div id="webcam-result" class="prediction-container">
+                </div>
+        </section>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
